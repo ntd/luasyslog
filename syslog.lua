@@ -1,22 +1,26 @@
-require"logging"
-require"lsyslog"
-
-local convert =
-{
-	[logging.DEBUG] = lsyslog.LOG_DEBUG,
-	[logging.INFO]  = lsyslog.LOG_INFO,
-	[logging.WARN]  = lsyslog.LOG_WARNING,
-	[logging.ERROR] = lsyslog.LOG_ERR,
-	[logging.FATAL] = lsyslog.LOG_ALERT,
-}
+local logging = require 'logging'
 
 function logging.syslog(ident, facility)
-	if type(ident) ~= "string" then
-		ident = "lua"
-	end
-	lsyslog.open(ident, facility or lsyslog.FACILITY_USER)
-	return logging.new(function(self, level, message)
-		lsyslog.log(convert[level] or lsyslog.LOG_ERR, message)
-		return true
-	end)
+    local lsyslog = require 'lsyslog'
+
+    local convert = {
+	[logging.DEBUG] = lsyslog.LEVEL.DEBUG,
+	[logging.INFO]  = lsyslog.LEVEL.INFO,
+	[logging.WARN]  = lsyslog.LEVEL.WARNING,
+	[logging.ERROR] = lsyslog.LEVEL.ERR,
+	[logging.FATAL] = lsyslog.LEVEL.ALERT,
+    }
+
+    if type(ident) ~= 'string' then
+	ident = 'lua'
+    end
+
+    lsyslog.open(ident, facility or lsyslog.FACILITY.USER)
+
+    return logging.new(function(self, level, message)
+	lsyslog.log(convert[level] or lsyslog.LEVEL.ERR, message)
+	return true
+    end)
 end
+
+return logging.syslog
