@@ -13,8 +13,10 @@ SOURCES = lsyslog.c
 OBJS = lsyslog.o
 CMOD = lsyslog.so
 LMOD = syslog.lua
-DISTFILES = README COPYING Makefile $(SOURCES) $(LMOD) $(TEMPLATE)
+TESTS = test.lua
+DISTFILES = README COPYING Makefile $(SOURCES) $(LMOD) $(TEMPLATE) $(TESTS)
 
+LUA = lua
 CC = gcc
 TAR = tar
 PKG_CONFIG = pkg-config
@@ -114,6 +116,10 @@ clean-rock:
 distclean: clean clean-rock
 	$(AT)rm -f $(TARBALL) ; \
 	rm -fr $(PACKAGE_TARNAME)/
+
+
+check: $(TESTS) $(CMOD) $(LMOD)
+	$(AT)$(LUA) test.lua
 
 
 .PHONY: all dist rock rockspec \

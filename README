@@ -12,6 +12,7 @@ Available targets, usable with "make TARGET":
 
 * all (default): compile C module
 * dist: generate luasyslog-*.tar.gz
+* check: run test.lua to send some message to syslog
 * rock: build the Lua rock package
 * rockspec: generate luasyslog-*-1.rockspeck
 * install: install everything
