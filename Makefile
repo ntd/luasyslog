@@ -23,16 +23,17 @@ PKG_CONFIG = pkg-config
 SED = sed
 LUAROCKS = luarocks
 
-CFLAGS = `$(PKG_CONFIG) --cflags lua` -O2 -fpic
+LUA_PACKAGE = lua
+CFLAGS = `$(PKG_CONFIG) --cflags $(LUA_PACKAGE)` -O2 -fpic
 CPPFLAGS = -DPACKAGE='"$(PACKAGE)"' \
 	   -DPACKAGE_VERSION='"$(PACKAGE_VERSION)"' \
 	   -DPACKAGE_DESCRIPTION='"$(PACKAGE_DESCRIPTION)"' \
 	   -DPACKAGE_AUTHOR='"$(PACKAGE_AUTHOR)"' \
 	   -DPACKAGE_LICENSE='"$(PACKAGE_LICENSE)"' \
 	   -DPACKAGE_TARNAME='"$(PACKAGE_TARNAME)"'
-LIBFLAG = `$(PKG_CONFIG) --libs lua` -O -fpic -shared
-LUADIR = $(DESTDIR)`$(PKG_CONFIG) --variable=INSTALL_LMOD lua`
-LIBDIR = $(DESTDIR)`$(PKG_CONFIG) --variable=INSTALL_CMOD lua`
+LIBFLAG = `$(PKG_CONFIG) --libs $(LUA_PACKAGE)` -O -fpic -shared
+LUADIR = $(DESTDIR)`$(PKG_CONFIG) --variable=INSTALL_LMOD $(LUA_PACKAGE)`
+LIBDIR = $(DESTDIR)`$(PKG_CONFIG) --variable=INSTALL_CMOD $(LUA_PACKAGE)`
 
 # Silent rules: use "make V=1" for verbose mode
 V = 0
