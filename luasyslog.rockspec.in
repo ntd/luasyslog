@@ -1,15 +1,15 @@
-package = 'luasyslog'
-version = '@VERSION@-1'
+package = '@PACKAGE@'
+version = '@PACKAGE_VERSION@-1'
 description = {
-    summary = 'syslog appender for LuaLogging',
+    summary = '@PACKAGE_DESCRIPTION@',
     detailed = [[
         Add-on for LuaLogging that provides a new appender based on
         the syslog infrastructure presents on most UNIX system.
         Run `man 3 syslog' for technical details.
     ]],
-    license = 'MIT/X11',
+    license = '@PACKAGE_LICENSE@',
     homepage = 'https://github.com/ntd/luasyslog/',
-    maintainer = 'Nicola Fontana <ntd@entidi.it>'
+    maintainer = '@PACKAGE_AUTHOR@'
 }
 dependencies = {
     'lua >= 5.2',
@@ -17,7 +17,7 @@ dependencies = {
 }
 source = {
     url = 'git://github.com/ntd/luasyslog',
-    tag = '@VERSION@'
+    tag = '@PACKAGE_VERSION@'
 }
 build = {
     type = 'make'
