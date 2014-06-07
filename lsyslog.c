@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <string.h>
 #include <syslog.h>
 
 #include <lua.h>
@@ -8,10 +10,16 @@
 static int
 lsyslog_open(lua_State *L)
 {
+    static char *persistent_ident = NULL;
     const char *ident = luaL_checkstring(L, 1);
     int facility = luaL_checkinteger(L, 2);
 
-    openlog(ident, LOG_PID, facility);
+    if (persistent_ident != NULL) {
+        free(persistent_ident);
+    }
+
+    persistent_ident = strdup(ident);
+    openlog(persistent_ident, LOG_PID, facility);
     return 0;
 }
 
