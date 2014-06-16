@@ -1,5 +1,5 @@
 PACKAGE = luasyslog
-PACKAGE_VERSION = 2.0.0
+PACKAGE_VERSION = 2.0.1
 PACKAGE_DESCRIPTION = syslog appender for LuaLogging
 PACKAGE_AUTHOR = Nicola Fontana <ntd@entidi.it>
 PACKAGE_LICENSE = MIT/X11
