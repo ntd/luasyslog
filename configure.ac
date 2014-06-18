@@ -1,6 +1,6 @@
 dnl autoconf initialization
 AC_INIT([luasyslog],
-	[2.0.1],
+	[2.0.2],
 	[http://github.com/ntd/luasyslog/issues/],
 	[luasyslog],
 	[https://github.com/ntd/luasyslog/])
