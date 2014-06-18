@@ -9,7 +9,7 @@ AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([build])
 
 dnl automake initialization
-AM_INIT_AUTOMAKE([foreign serial-tests])
+AM_INIT_AUTOMAKE([foreign])
 m4_ifdef([AM_SILENT_RULES],
          [AM_SILENT_RULES([yes])],
          [AC_SUBST([AM_V_GEN],[])])
