@@ -8,7 +8,7 @@ description = {
         Run `man 3 syslog' for technical details.
     ]],
     license = '@PACKAGE_LICENSE@',
-    homepage = 'https://github.com/ntd/luasyslog/',
+    homepage = '@PACKAGE_URL@',
     maintainer = '@PACKAGE_AUTHOR@'
 }
 dependencies = {
