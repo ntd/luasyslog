@@ -27,8 +27,8 @@ luaexec_LTLIBRARIES=	lsyslog.la
 lsyslog_la_SOURCES=	$(c_sources)
 lsyslog_la_LDFLAGS=	-module
 
-syslogdir=		$(luadir)/syslog
-syslog_SCRIPTS=		$(lua_sources)
+loggingdir=		$(luadir)/logging
+logging_SCRIPTS=	$(lua_sources)
 
 CLEANFILES=		$(rock)
 
