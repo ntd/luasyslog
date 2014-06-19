@@ -44,4 +44,5 @@ dnl File generation
 AC_CONFIG_HEADER(config.h)
 AC_CONFIG_FILES([Makefile]
 		luasyslog-AC_PACKAGE_VERSION-1.rockspec:luasyslog.rockspec.in)
+AC_CONFIG_FILES([test.lua],[chmod 0755 test.lua])
 AC_OUTPUT

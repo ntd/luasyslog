@@ -1,0 +1,12 @@
+#! /usr/bin/env @LUA@
+
+-- Get the current/working directory, trailing slash included
+local pwd = arg[0]:match('.*/') or './'
+
+-- Prepend pwd on cpath so the uninstalled lsyslog is picked first
+package.cpath = pwd .. '/?.so;' .. pwd .. '/.libs/?.so;' .. package.cpath
+
+-- Manually preload syslog.lua to correct "require" from example.lua
+package.preload['logging.syslog'] = loadfile(pwd .. '/syslog.lua')
+
+dofile 'example.lua'

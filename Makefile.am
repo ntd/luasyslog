@@ -6,16 +6,16 @@ lua_sources=		syslog.lua
 EXTRA_DIST=		README \
 			COPYING \
 			Makefile.am \
+			test.lua.in \
 			luasyslog.rockspec.in \
 			$(c_sources) \
 			$(lua_sources) \
 			$(LMOD) \
-			$(TESTS) \
 			build/ax_define_subst.m4 \
 			build/ax_lua.m4
 
 TESTS=			test.lua
-CLEANFILES=		$(rock)
+dist_data_DATA=		example.lua
 
 ACLOCAL_AMFLAGS=	-I build
 AM_CPPFLAGS=		$(LUA_INCLUDE)
@@ -28,6 +28,8 @@ lsyslog_la_LDFLAGS=	-module
 
 syslogdir=		$(luadir)/syslog
 syslog_SCRIPTS=		$(lua_sources)
+
+CLEANFILES=		$(rock)
 
 
 rock: $(rock)
