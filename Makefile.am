@@ -16,7 +16,7 @@ EXTRA_DIST=		autogen.sh \
 			build/ax_lua.m4
 
 TESTS=			test.lua
-dist_data_DATA=		example.lua
+dist_pkgdata_DATA=		example.lua
 
 ACLOCAL_AMFLAGS=	-I build
 AM_CPPFLAGS=		-I. $(LUA_INCLUDE)
@@ -34,8 +34,13 @@ CLEANFILES=		$(rock)
 
 
 install-exec-hook:
+	@$(POST_INSTALL)
 	-rm -f $(DESTDIR)$(luaexecdir)/lsyslog.la
 
+# The absence of the .la file prevents the .so removal
+uninstall-hook:
+	@$(POST_UNINSTALL)
+	-rm -f $(DESTDIR)$(luaexecdir)/lsyslog.so
 
 rock: $(rock)
 
