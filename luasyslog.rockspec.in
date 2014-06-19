@@ -21,6 +21,7 @@ source = {
 }
 build = {
     type = 'command',
+
     -- Actually the rock is built directly from a git checkout,
     -- so we must run ./autogen.sh before
     build_command = [[
@@ -34,5 +35,18 @@ build = {
 		--docdir="$(DOCDIR)" \
 		--sysconfdir="$(CONFDIR)" &&
 	make]],
-    install_command = 'make install'
+
+    -- The usual approach (install_command = 'make install')
+    -- does not allow a clean uninstall with "luarocks remove"
+    install = {
+	lua = {
+	    ['logging.syslog'] = 'syslog.lua'
+	},
+	lib = {
+	    '.libs/lsyslog.so'
+	},
+	bin = {
+	    'example.lua'
+	}
+    }
 }
