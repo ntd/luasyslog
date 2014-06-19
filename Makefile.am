@@ -25,7 +25,7 @@ LIBADD=			$(LUA_LIB)
 
 luaexec_LTLIBRARIES=	lsyslog.la
 lsyslog_la_SOURCES=	$(c_sources)
-lsyslog_la_LDFLAGS=	-module
+lsyslog_la_LDFLAGS=	-module -avoid-version
 
 loggingdir=		$(luadir)/logging
 logging_DATA=		$(lua_sources)
