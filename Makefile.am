@@ -28,7 +28,7 @@ lsyslog_la_SOURCES=	$(c_sources)
 lsyslog_la_LDFLAGS=	-module
 
 loggingdir=		$(luadir)/logging
-logging_SCRIPTS=	$(lua_sources)
+logging_DATA=		$(lua_sources)
 
 CLEANFILES=		$(rock)
 
