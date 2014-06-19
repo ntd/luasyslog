@@ -3,7 +3,8 @@ rockspec=		$(PACKAGE_TARNAME)-$(PACKAGE_VERSION)-1.rockspec
 c_sources=		lsyslog.c
 lua_sources=		syslog.lua
 
-EXTRA_DIST=		README \
+EXTRA_DIST=		autogen.sh \
+			README \
 			COPYING \
 			Makefile.am \
 			test.lua.in \
