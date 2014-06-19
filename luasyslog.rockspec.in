@@ -30,8 +30,9 @@ build = {
 		LDFLAGS="-L$(LUA_LIBDIR)" \
 		LUA_INCLUDE="-I$(LUA_INCDIR)" \
 		--bindir="$(SCRIPTS_DIR)" \
+		--datadir="$(LUADIR)" \
 		--docdir="$(DOCDIR)" \
-		--datadir="$(CONFDIR)" &&
+		--sysconfdir="$(CONFDIR)" &&
 	make]],
     install_command = 'make install'
 }
