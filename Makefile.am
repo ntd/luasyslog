@@ -19,7 +19,7 @@ TESTS=			test.lua
 dist_data_DATA=		example.lua
 
 ACLOCAL_AMFLAGS=	-I build
-AM_CPPFLAGS=		$(LUA_INCLUDE)
+AM_CPPFLAGS=		-I. $(LUA_INCLUDE)
 LIBADD=			$(LUA_LIB)
 
 
