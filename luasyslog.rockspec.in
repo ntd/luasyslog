@@ -25,9 +25,9 @@ build = {
     -- so we must run ./autogen.sh before
     build_command = [[
 	./autogen.sh &&
-	./configure --prefix=$(PREFIX) \
-	    --libdir=$(LIBDIR) --datadir=$(LUADIR) \
-	    LUA=$(LUA) CPPFLAGS=-I$(LUA_INCDIR) &&
+	./configure CC=$(CC) LUA=$(LUA) \
+	    CFLAGS=$(CFLAGS) LDFLAGS=-L$(LUA_LIBDIR) LUA_INCLUDE=-I$(LUA_INCDIR) \
+	    --bindir=$(SCRIPTS_DIR) --docdir=$(DOCDIR) --datadir=$(CONFDIR) &&
 	make]],
     install_command = 'make install'
 }
