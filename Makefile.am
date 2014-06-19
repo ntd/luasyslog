@@ -33,6 +33,10 @@ logging_DATA=		$(lua_sources)
 CLEANFILES=		$(rock)
 
 
+install-exec-hook:
+	-rm -f $(DESTDIR)$(luaexecdir)/lsyslog.la
+
+
 rock: $(rock)
 
 $(rock): $(rockspec)
