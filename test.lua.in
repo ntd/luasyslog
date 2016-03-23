@@ -3,10 +3,12 @@
 -- Get the current/working directory, trailing slash included
 local pwd = arg[0]:match('.*/') or './'
 
--- Prepend pwd on cpath so the uninstalled lsyslog is picked first
-package.cpath = pwd .. '/?.so;' .. pwd .. '/.libs/?.so;' .. package.cpath
+-- We are in builddir, so prepend the current directory
+-- to pick up the uninstalled lsyslog first
+package.cpath = './?.so;./.libs/?.so;' .. package.cpath
 
--- Manually preload syslog.lua to correct "require" from example.lua
-package.preload['logging.syslog'] = loadfile(pwd .. '/syslog.lua')
+-- Manually preload logging.syslog from srcdir to pick up
+-- the uninstalled syslog.lua
+package.preload['logging.syslog'] = loadfile('@srcdir@/syslog.lua')
 
-dofile 'example.lua'
+dofile '@srcdir@/example.lua'

@@ -16,7 +16,7 @@ EXTRA_DIST=		autogen.sh \
 			build/ax_lua.m4
 
 TESTS=			test.lua
-dist_pkgdata_DATA=		example.lua
+dist_pkgdata_DATA=	example.lua
 
 ACLOCAL_AMFLAGS=	-I build
 AM_CPPFLAGS=		-I. $(LUA_INCLUDE)
