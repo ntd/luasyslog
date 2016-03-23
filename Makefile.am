@@ -4,7 +4,7 @@ c_sources=		lsyslog.c
 lua_sources=		syslog.lua
 
 EXTRA_DIST=		autogen.sh \
-			README \
+			README.md \
 			COPYING \
 			Makefile.am \
 			test.lua.in \
