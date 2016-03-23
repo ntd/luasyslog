@@ -29,7 +29,7 @@ dnl Check for programs
 AC_PROG_CC
 AC_PROG_SED
 AC_PATH_PROG([LUAROCKS], [luarocks], [:])
-AX_PROG_LUA([5.1], [5.3])
+AX_PROG_LUA([5.1],[6.0])
 
 dnl Check for libraries
 AX_LUA_LIBS
