@@ -8,6 +8,7 @@
 #include <lauxlib.h>
 #include <lualib.h>
 
+#include "compat-5.3.h"
 
 static int
 lsyslog_open(lua_State *L)

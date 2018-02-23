@@ -1,6 +1,6 @@
 rock=			$(PACKAGE_TARNAME)-$(PACKAGE_VERSION)-1.src.rock
 rockspec=		$(PACKAGE_TARNAME)-$(PACKAGE_VERSION)-1.rockspec
-c_sources=		lsyslog.c
+c_sources=		lsyslog.c compat-5.3.c compat-5.3.h
 lua_sources=		syslog.lua
 
 EXTRA_DIST=		autogen.sh \
